@@ -25,4 +25,10 @@ public class IndexController {
         userDTO.setUserName("23fas");
         return ResultDTO.wrapSuccess(userDTO);
     }
+
+    @RequestMapping(value = "")
+    public String freemarker(Model model) {
+        model.addAttribute("describe","adsfasfasdf");
+        return "index";
+    }
 }

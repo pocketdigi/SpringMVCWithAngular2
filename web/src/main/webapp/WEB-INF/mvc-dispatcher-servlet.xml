@@ -20,22 +20,5 @@
     <!-- 开启注解 -->
     <mvc:annotation-driven/>
 
-    <!--ViewResolver 视图解析器-->
-    <!--用于支持Servlet、JSP视图解析-->
-    <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="prefix" value="/WEB-INF/jsp/"/>
-        <property name="suffix" value=".jsp"/>
-    </bean>
-
-    <!--<bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">-->
-        <!--<property name="templateLoaderPath" value="WEB-INF/ftl/" />-->
-        <!--<property name="defaultEncoding" value="UTF-8" />-->
-    <!--</bean>-->
-    <!--<bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">-->
-        <!--<property name="suffix" value=".ftl" />-->
-        <!--<property name="contentType" value="text/html;charset=UTF-8" />-->
-        <!--<property name="requestContextAttribute" value="rc" />-->
-    <!--</bean>-->
 </beans>
 
