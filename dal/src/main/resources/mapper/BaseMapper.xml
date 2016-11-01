@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BASE_MAPPER">
+    <resultMap id="BASE_RESULT_MAP" type="com.pocketdigi.demo.dal.po.BasePo">
+        <id column="id" property="id" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+    </resultMap>
+    <sql id="BASE_COLUMN_LIST">
+        id as id,
+        gmt_create as gmtCreate,
+        gmt_modified as gmtModified,
+    </sql>
+    <sql id="BASE_WHERE_CLAUSE">
+        <if test="id != null">and id= #{id}</if>
+        <if test="gmtCreate != null">and gmt_create= #{gmtCreate}</if>
+        <if test="gmtModified != null">and gmt_modified= #{gmtModified}</if>
+    </sql>
+    <sql id="BASE_UPDATE_SET">
+        <if test="gmtCreate != null and gmtCreate != ''">
+            gmt_create=#{gmtCreate},
+        </if>
+        <if test="gmtModified != null and gmtModified != ''">
+            gmt_modified=#{gmtModified},
+        </if>
+    </sql>
+
+    <sql id="BASE_INSERT_COLUMN">
+        gmt_create,
+        gmt_modified,
+    </sql>
+
+    <sql id="BASE_ORDER_BY">
+        <if test="sorts != null">
+            order by
+            <foreach collection="sorts" item="tag" separator=",">
+                ${tag}
+            </foreach>
+        </if>
+    </sql>
+
+    <sql id="BASE_LIMIT">
+        <if test="offset != null and limit != null">
+            limit ${offset}, ${limit}
+        </if>
+    </sql>
+
+</mapper>

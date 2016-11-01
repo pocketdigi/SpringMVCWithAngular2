@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//Mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pocketdigi.demo.dal.mapper.UserMapper">
+
+    <resultMap id="ResultMap" type="com.pocketdigi.demo.dal.po.UserPo" extends="BASE_MAPPER.BASE_RESULT_MAP">
+        <result column="user_name" property="userName" />
+        <result column="user_age" property="userAge" />
+    </resultMap>
+
+    <sql id="ColumnList">
+        <trim suffix="" suffixOverrides=",">
+            <include refid="BASE_MAPPER.BASE_COLUMN_LIST"/>
+            user_name,
+            user_age,
+        </trim>
+    </sql>
+    
+    <sql id="WhereClause">
+        <where>
+            <trim prefixOverrides="and">
+                <include refid="BASE_MAPPER.BASE_WHERE_CLAUSE" />
+                <if test="userName != null and userName != ''">
+                    and user_name = #{userName}
+                </if>
+                <if test="userAge != null and userAge !=''">
+                    and user_age = #{userAge}
+                </if>
+            </trim>
+        </where>
+    </sql>
+
+    <sql id="UpdateSet">
+        <set>
+            <trim suffix="" suffixOverrides=",">
+                <include refid="BASE_MAPPER.BASE_UPDATE_SET" />
+                <if test="userName != null and userName != ''">
+                    user_name = #{userName},
+                </if>
+                <if test="userAge != null and userAge !=''">
+                    user_age = #{userAge}
+                </if>
+            </trim>
+        </set>
+
+    </sql>
+
+    <select id="selectCount" resultType="java.lang.Integer" parameterType="Map">
+        SELECT COUNT (id)
+        FROM users
+        <include refid="WhereClause" />
+    </select>
+
+    <select id="select" resultMap="ResultMap">
+        SELECT
+        <include refid="ColumnList" />
+        from users
+        <include refid="WhereClause" />
+        <include refid="BASE_MAPPER.BASE_ORDER_BY" />
+        <include refid="BASE_MAPPER.BASE_LIMIT" />
+    </select>
+
+    <select id="selectById" resultMap="ResultMap">
+        SELECT
+        <include refid="ColumnList" />
+        FROM users
+        WHERE id = #{id};
+    </select>
+
+    <select id="selectByName" resultMap="ResultMap" parameterType="java.lang.String">
+        SELECT
+        <include refid="ColumnList" />
+        FROM users
+        WHERE user_name = #{userName};
+    </select>
+
+    <select id="selectAll" resultMap="ResultMap">
+        SELECT
+        <include refid="ColumnList" />
+        FROM users;
+    </select>
+
+    <!-- 根据IDS批量查询 -->
+    <select id="selectByIds" resultMap="ResultMap">
+        select
+        <include refid="ColumnList"/>
+        from users
+        where id in
+        (
+        <foreach collection="array" index="index" item="tag" separator=",">
+            #{tag}
+        </foreach>
+        )
+    </select>
+
+    <delete id="deleteByIds">
+        DELETE
+        FROM users
+        where id in
+        (
+        <foreach collection="array" index="index" item="tag" separator=",">
+            #{tag}
+        </foreach>
+        )
+    </delete>
+
+    <delete id="deleteById">
+        DELETE
+        FROM users
+        where id = #{id};
+    </delete>
+
+    <delete id="delete">
+        DELETE
+        FROM users
+        <include refid="WhereClause"/>
+    </delete>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id" >
+          INSERT INTO users (
+            <if test="userName != null">
+                user_name,
+            </if>
+            <if test="userAge != 0">
+                user_age
+            </if>
+        )
+        VALUES (
+        <if test="userName != null">
+            #{userName},
+        </if>
+        <if test="userAge != 0">
+            #{userAge}
+        </if>
+        )
+    </insert>
+
+    <update id="updateById">
+        UPDATE users
+        SET user_name = #{userName},user_age = #{userAge}
+        WHERE id = ${id};
+    </update>
+
+
+
+</mapper>

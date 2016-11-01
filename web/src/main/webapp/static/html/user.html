@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+</head>
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+<style rel="stylesheet">
+
+    td{
+        width:120px;
+        border: 1px #000000 solid;
+    }
+</style>
+<body>
+<div>
+    <div>增加用户</div>
+    <div><label>姓名</label><span><input type="text" id="userName"></span></div>
+    <div><label>年龄</label><span><input type="text" id="userAge"></span></div>
+    <button type="button" id="submit">增加</button>
+
+</div>
+
+
+
+    <table>
+        <tr>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td>操作</td>
+        </tr>
+
+    </table>
+
+
+</body>
+
+<script type="text/javascript">
+    $("#submit").click(function () {
+        var userAge=$("#userAge").val();
+        var userName=$("#userName").val();
+        var user={};
+        user.userAge=parseInt(userAge);
+        user.userName=userName;
+        $.ajax({
+            type: 'POST',
+            url: '/user',
+            contentType:"application/json",
+            data:JSON.stringify(user),
+            success: function (data) {
+                console.log(JSON.stringify(data));
+                location.reload();
+
+            },
+            dataType: 'json'
+        });
+    });
+
+    $(document).ready(function(){
+        $.ajax({
+            type:'GET',
+            url:'/user/list',
+            success:function(data) {
+                console.log(JSON.stringify(data));
+                var userArray=data.data;
+
+                userArray.forEach(function(user,index,array){
+                    $("table").append("<tr data-id='"+user.id+"'><td>"+user.userName+"</td><td>"+user.userAge+"</td><td class='delete'>删除</td> </tr>");
+                });
+                bindEvent();
+
+            },
+            dataType:'json'
+        })
+    });
+
+    function bindEvent() {
+        $('.delete').click(function(){
+            console.log('22');
+            var id=$(this).parent().attr('data-id');
+            $.ajax({
+                url:'/user/'+id,
+                type: 'DELETE',
+                success: function() {
+                    location.reload();
+                },
+                dataType:'json'
+            })
+        });
+    }
+</script>
+</html>
