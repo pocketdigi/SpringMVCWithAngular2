@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+        </Console>
+        <File name="Info" fileName="logs/info.log" bufferedIO="false"
+              advertise="true">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+        </File>
+        <File name="Error" fileName="logs/error.log" bufferedIO="false"
+              advertise="true">
+            <ThresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <!--制定输出com包中的logger-->
+        <!--<Logger name="com.pocketdigi.springmvc" level="debug">-->
+
+            <!--&lt;!&ndash;<AppenderRef ref="E"/>&ndash;&gt;-->
+        <!--</Logger>-->
+
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="Info"/>
+            <AppenderRef ref="Error"/>
+        </Root>
+
+    </Loggers>
+</Configuration>

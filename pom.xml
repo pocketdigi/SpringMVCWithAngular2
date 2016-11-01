@@ -14,9 +14,10 @@
         <module>client</module>
         <module>biz</module>
         <module>dal</module>
+        <module>jetty</module>
     </modules>
     <properties>
-        <servlet-api.version>2.5</servlet-api.version>
+        <servlet-api.version>3.1.0</servlet-api.version>
         <!--spring&database-->
         <spring.version>4.1.0.RELEASE</spring.version>
         <spring-data.version>1.10.1.RELEASE</spring-data.version>
@@ -31,6 +32,10 @@
         <commons-lang3.version>3.4</commons-lang3.version>
         <freemarker.version>2.3.22</freemarker.version>
 
+        <!-- jetty -->
+        <jetty-all.version>8.2.0.v20160908</jetty-all.version>
+        <!-- jetty-webapp -->
+        <jetty-webapp.version>9.3.13.v20161014</jetty-webapp.version>
 
         <!--self-->
         <common.version>1.0-SNAPSHOT</common.version>
@@ -61,7 +66,11 @@
                 <version>1.0-SNAPSHOT</version>
                 <groupId>com.pocketdigi.demo</groupId>
             </dependency>
-
+            <dependency>
+                <artifactId>web</artifactId>
+                <groupId>com.pocketdigi.demo</groupId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
 
             <dependency>
                 <groupId>junit</groupId>
@@ -81,9 +90,10 @@
                 <version>2.1</version>
                 <scope>provided</scope>
             </dependency>
+
             <dependency>
                 <groupId>javax.servlet</groupId>
-                <artifactId>servlet-api</artifactId>
+                <artifactId>javax.servlet-api</artifactId>
                 <version>${servlet-api.version}</version>
                 <scope>provided</scope>
             </dependency>
@@ -241,6 +251,19 @@
                 <version>${freemarker.version}</version>
             </dependency>
 
+
+            <!-- jetty -->
+            <dependency>
+                <groupId>org.eclipse.jetty.aggregate</groupId>
+                <artifactId>jetty-all</artifactId>
+                <version>${jetty-all.version}</version>
+            </dependency>
+            <!-- jetty webapp -->
+            <dependency>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-webapp</artifactId>
+                <version>${jetty-webapp.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
