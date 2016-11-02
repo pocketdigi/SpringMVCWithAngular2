@@ -2,8 +2,7 @@ package com.pocketdigi.demo.controller;
 
 import com.pocketdigi.demo.biz.user.UserBiz;
 import com.pocketdigi.demo.biz.user.bo.UserBo;
-import com.pocketdigi.demo.common.converter.ListObjConverter;
-import com.pocketdigi.demo.common.converter.PojoConverter;
+import com.pocketdigi.demo.common.converter.BeanConverter;
 import com.pocketdigi.demo.dto.ResultDTO;
 import com.pocketdigi.demo.user.UserClient;
 import com.pocketdigi.demo.user.dto.UserDTO;
@@ -27,9 +26,10 @@ public class UserController implements UserClient {
     @RequestMapping(value = "",method =  RequestMethod.POST)
     @ResponseBody
     public ResultDTO<UserDTO> addUser(@RequestBody UserDTO user) {
-        UserBo userBo = PojoConverter.convert(user, UserBo.class);
+        UserBo userBo = BeanConverter.convertObj(user,UserBo.class);
+
         userBiz.addUser(userBo);
-        UserDTO userDTO=PojoConverter.convert(userBo,UserDTO.class);
+        UserDTO userDTO=BeanConverter.convertObj(userBo,UserDTO.class);
         return ResultDTO.wrapSuccess(userDTO);
     }
 
@@ -44,7 +44,7 @@ public class UserController implements UserClient {
     @ResponseBody
     public ResultDTO<List<UserDTO>> list() {
         List<UserBo> userBos = userBiz.listAll();
-        return ResultDTO.wrapSuccess(ListObjConverter.convert(userBos,UserDTO.class));
+        return ResultDTO.wrapSuccess(BeanConverter.convertArrayList(userBos,UserDTO.class));
     }
     @RequestMapping(value = "{id}",method = RequestMethod.DELETE)
     @ResponseBody
