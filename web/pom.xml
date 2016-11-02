@@ -1,30 +1,30 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
-        <artifactId>demo</artifactId>
-        <groupId>com.pocketdigi.demo</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <artifactId>${project.artifactId}</artifactId>
+        <groupId>${project.groupId}</groupId>
+        <version>${project.version}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>web</artifactId>
     <packaging>war</packaging>
-    <name>web Maven Webapp</name>
+    <name>web</name>
     <url>http://maven.apache.org</url>
     <dependencies>
 
         <dependency>
             <artifactId>common</artifactId>
-            <groupId>com.pocketdigi.demo</groupId>
+            <groupId>${project.groupId}</groupId>
         </dependency>
 
         <dependency>
             <artifactId>client</artifactId>
-            <groupId>com.pocketdigi.demo</groupId>
+            <groupId>${project.groupId}</groupId>
         </dependency>
 
         <dependency>
             <artifactId>biz</artifactId>
-            <groupId>com.pocketdigi.demo</groupId>
+            <groupId>${project.groupId}</groupId>
         </dependency>
 
 

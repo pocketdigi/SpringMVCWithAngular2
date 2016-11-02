@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.pocketdigi.demo</groupId>
-    <artifactId>demo</artifactId>
+    <groupId>${project.groupId}</groupId>
+    <artifactId>${project.artifactId}</artifactId>
     <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>${project.version}</version>
     <modules>
         <module>common</module>
         <module>web</module>
@@ -17,6 +17,14 @@
         <module>jetty</module>
     </modules>
     <properties>
+        <!--self-->
+        <project.groupId>com.pocketdigi.demo</project.groupId>
+        <project.artifactId>demo</project.artifactId>
+        <project.version>1.0-SNAPSHOT</project.version>
+        <common.version>1.0-SNAPSHOT</common.version>
+        <client.version>1.0-SNAPSHOT</client.version>
+
+
         <servlet-api.version>3.1.0</servlet-api.version>
         <!--spring&database-->
         <spring.version>4.1.0.RELEASE</spring.version>
@@ -37,9 +45,7 @@
         <!-- jetty-webapp -->
         <jetty-webapp.version>9.3.13.v20161014</jetty-webapp.version>
 
-        <!--self-->
-        <common.version>1.0-SNAPSHOT</common.version>
-        <client.version>1.0-SNAPSHOT</client.version>
+
     </properties>
 
     <dependencyManagement>
@@ -47,30 +53,31 @@
             <!--self-->
             <dependency>
                 <artifactId>common</artifactId>
-                <groupId>com.pocketdigi.demo</groupId>
+                <groupId>${project.groupId}</groupId>
                 <version>${common.version}</version>
             </dependency>
             <dependency>
                 <artifactId>client</artifactId>
-                <groupId>com.pocketdigi.demo</groupId>
+                <groupId>${project.groupId}</groupId>
                 <version>${client.version}</version>
             </dependency>
 
             <dependency>
                 <artifactId>dal</artifactId>
                 <version>1.0-SNAPSHOT</version>
-                <groupId>com.pocketdigi.demo</groupId>
+                <groupId>${project.groupId}</groupId>
             </dependency>
             <dependency>
                 <artifactId>biz</artifactId>
                 <version>1.0-SNAPSHOT</version>
-                <groupId>com.pocketdigi.demo</groupId>
+                <groupId>${project.groupId}</groupId>
             </dependency>
             <dependency>
                 <artifactId>web</artifactId>
-                <groupId>com.pocketdigi.demo</groupId>
+                <groupId>${project.groupId}</groupId>
                 <version>1.0-SNAPSHOT</version>
             </dependency>
+
 
             <dependency>
                 <groupId>junit</groupId>
