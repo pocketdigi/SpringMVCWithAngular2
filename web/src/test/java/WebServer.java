@@ -13,7 +13,7 @@ public class WebServer {
         context.setDescriptor("./web/src/main/webapp/WEB-INF/web.xml");
         context.setResourceBase("./web/src/main/webapp");
         //解决静态资源缓存后再ide里面不能修改问题
-        context.setDefaultsDescriptor("./jetty/src/test/resources/webdefault.xml");
+        context.setDefaultsDescriptor("./web/src/test/resources/webdefault.xml");
         context.setParentLoaderPriority(true);
         server.setHandler(context);
         try {

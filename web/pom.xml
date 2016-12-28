@@ -81,6 +81,19 @@
             <artifactId>freemarker</artifactId>
         </dependency>
 
+        <!-- jetty -->
+        <dependency>
+            <groupId>org.eclipse.jetty.aggregate</groupId>
+            <artifactId>jetty-all</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- jetty webapp -->
+        <dependency>
+            <groupId>org.eclipse.jetty</groupId>
+            <artifactId>jetty-webapp</artifactId>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
     <build>
         <finalName>web</finalName>
