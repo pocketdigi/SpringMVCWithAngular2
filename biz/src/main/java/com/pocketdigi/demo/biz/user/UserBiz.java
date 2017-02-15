@@ -12,4 +12,5 @@ public interface UserBiz {
     UserBo addUser(UserBo userBo);
     boolean deleteUser(Integer id);
     List<UserBo> listAll();
+    UserBo getUser(Integer id);
 }

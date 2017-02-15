@@ -36,4 +36,10 @@ public class UserBizImpl implements UserBiz{
         List<UserPo> userPos = userMapper.selectAll();
         return BeanConverter.convertArrayList(userPos, UserBo.class);
     }
+
+    public UserBo getUser(Integer id) {
+        UserPo userPo = userMapper.selectById(id);
+        return BeanConverter.convertObj(userPo,UserBo.class);
+
+    }
 }

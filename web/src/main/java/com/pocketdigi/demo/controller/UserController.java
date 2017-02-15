@@ -57,4 +57,11 @@ public class UserController implements UserClient {
         }
 
     }
+    @RequestMapping(value = "{id}",method = RequestMethod.GET)
+    @ResponseBody
+    public ResultDTO<UserDTO> detail(@PathVariable Integer id) {
+        UserBo user = userBiz.getUser(id);
+        UserDTO userDTO=BeanConverter.convertObj(user,UserDTO.class);
+        return ResultDTO.wrapSuccess(userDTO);
+    }
 }

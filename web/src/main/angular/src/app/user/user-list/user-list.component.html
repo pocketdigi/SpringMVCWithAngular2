@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let user of userList;let i=index;trackBy:_trackByFn">
+    <a routerLink="/user/{{user.id}}">
+      {{user.userName}}
+    </a>
+  </li>
+</ul>
