@@ -8,5 +8,5 @@ import com.pocketdigi.demo.user.dto.UserDTO;
  */
 public interface UserClient {
     ResultDTO<UserDTO> addUser(UserDTO user);
-    ResultDTO<String> deleteUser(Integer id);
+    ResultDTO<Boolean> deleteUser(Integer id);
 }

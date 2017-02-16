@@ -20,7 +20,7 @@ import { NumberBetweenValidatorDirective } from './common/validator/number-betwe
     UserDetailComponent,
     RxjsComponent,
     UserEditComponent,
-    NumberBetweenValidatorDirective
+    NumberBetweenValidatorDirective,
   ],
   imports: [
     BrowserModule,

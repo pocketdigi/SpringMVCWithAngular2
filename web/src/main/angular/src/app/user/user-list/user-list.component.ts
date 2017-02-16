@@ -1,6 +1,7 @@
 import {Component, OnInit, AfterViewInit} from '@angular/core';
 import {UserService} from "../user.service";
 import {User} from "../user";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-user-list',
@@ -26,5 +27,9 @@ export class UserListComponent implements OnInit,AfterViewInit {
 
   _trackByFn(index:number,user:User) {
     return user.id;
+  }
+
+  delete(id:string) {
+    this.userService.deleteUser(id).subscribe(result=>(location.reload()));
   }
 }

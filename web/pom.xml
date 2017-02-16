@@ -97,5 +97,29 @@
     </dependencies>
     <build>
         <finalName>web</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.5.0</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <executable>cnpm</executable>
+                    <workingDirectory>${basedir}/src/main/angular
+                    </workingDirectory>
+                    <arguments>
+                        <argument>run</argument>
+                        <argument>release</argument>
+                    </arguments>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 </project>

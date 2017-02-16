@@ -1,11 +1,12 @@
-<form [formGroup]="userForm">
-  <label>用户名：</label><input type="text" formControlName="userName" required>
+<form #userForm="ngForm">
+  <label>用户名：</label><input type="text" name="userName"  [(ngModel)]="user.userName" required>
   <span *ngIf="formErrors['userName']" class="error">
     {{ formErrors['userName'] }}
     </span>
   <br>
-  <label>年龄：</label><input type="number" formControlName="userAge" required><span *ngIf="formErrors['userAge']" class="error">
+  <label>年龄：</label><input type="number" name="userAge" numberBetween="1,100" [(ngModel)]="user.userAge" required><span *ngIf="formErrors['userAge']" class="error">
     {{ formErrors['userAge'] }}
     </span> <br>
-  <input type="button" value="添加" [disabled]="!userForm.valid" (click)="addUser(userForm.value)">
+  <input *ngIf="user.id" type="button" value="保存" [disabled]="!userForm.valid" (click)="editUser()" >
+  <input *ngIf="!user.id" type="button" value="添加" [disabled]="!userForm.valid" (click)="addUser()" >
 </form>

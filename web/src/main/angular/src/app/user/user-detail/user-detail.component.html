@@ -1,4 +1,7 @@
-<p>
-  user-detail works!
-</p>
-<p *ngIf="user">{{user.userName}}</p>
+<div *ngIf="user">
+  <p>{{user.userName}}</p>
+  <p>{{user.userAge}}</p>
+  <p>{{user.gmtCreate | date:'y-MM-dd HH:mm:ss'}}</p>
+  <p><a routerLink="/user/edit/{{user.id}}">编辑</a> </p>
+</div>
+

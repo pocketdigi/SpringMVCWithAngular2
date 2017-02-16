@@ -1,10 +1,7 @@
-import {Component, OnInit, AfterViewInit} from '@angular/core';
+import {Component, OnInit, AfterViewInit} from "@angular/core";
 import {UserService} from "../user.service";
-import {Router, ActivatedRoute, Params} from "@angular/router";
+import {ActivatedRoute, Params} from "@angular/router";
 import {User} from "../user";
-import {Result} from "../../common/result";
-import {Observable} from "rxjs";
-import {timeout} from "rxjs/operator/timeout";
 
 @Component({
   selector: 'app-user-detail',
@@ -24,7 +21,6 @@ export class UserDetailComponent implements OnInit,AfterViewInit {
   ngAfterViewInit(): void {
     this.route.params.switchMap((params:Params)=> this.userService.getUser(params['id']))
       .subscribe(result=>this.user=result.data);
-
   }
 
 }

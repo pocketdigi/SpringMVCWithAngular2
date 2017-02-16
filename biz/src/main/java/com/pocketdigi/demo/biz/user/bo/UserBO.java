@@ -1,9 +1,8 @@
-package com.pocketdigi.demo.dal.po;
-
+package com.pocketdigi.demo.biz.user.bo;
 import lombok.Data;
 
 @Data
-public class UserPo extends BasePo{
+public class UserBO extends BaseBo{
     private String userName;
     private int userAge;
 }

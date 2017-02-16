@@ -3,5 +3,6 @@
     <a routerLink="/user/{{user.id}}">
       {{user.userName}}
     </a>
+    <span><button (click)="delete(user.id)">删除</button></span>
   </li>
 </ul>

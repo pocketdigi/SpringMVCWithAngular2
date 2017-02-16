@@ -1,10 +1,10 @@
 package com.pocketdigi.demo.biz.user.impl;
 
 import com.pocketdigi.demo.biz.user.UserBiz;
-import com.pocketdigi.demo.biz.user.bo.UserBo;
+import com.pocketdigi.demo.biz.user.bo.UserBO;
 import com.pocketdigi.demo.common.converter.BeanConverter;
 import com.pocketdigi.demo.dal.mapper.UserMapper;
-import com.pocketdigi.demo.dal.po.UserPo;
+import com.pocketdigi.demo.dal.po.UserPO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,12 +17,12 @@ import java.util.List;
 public class UserBizImpl implements UserBiz{
     @Autowired
     UserMapper userMapper;
-    public UserBo addUser(UserBo userBo) {
-        UserPo userPo = BeanConverter.convertObj(userBo, UserPo.class);
-        int insert = userMapper.insert(userPo);
-        userBo.setId(userPo.getId());
+    public UserBO addUser(UserBO userBO) {
+        UserPO userPO = BeanConverter.convertObj(userBO, UserPO.class);
+        int insert = userMapper.insert(userPO);
+        userBO.setId(userPO.getId());
         if(insert==1) {
-            return userBo;
+            return userBO;
         }else{
             return null;
         }
@@ -32,14 +32,19 @@ public class UserBizImpl implements UserBiz{
         return userMapper.deleteById(id)==1;
     }
 
-    public List<UserBo> listAll() {
-        List<UserPo> userPos = userMapper.selectAll();
-        return BeanConverter.convertArrayList(userPos, UserBo.class);
+    public List<UserBO> listAll() {
+        List<UserPO> userPOs = userMapper.selectAll();
+        return BeanConverter.convertArrayList(userPOs, UserBO.class);
     }
 
-    public UserBo getUser(Integer id) {
-        UserPo userPo = userMapper.selectById(id);
-        return BeanConverter.convertObj(userPo,UserBo.class);
+    public UserBO getUser(Integer id) {
+        UserPO userPO = userMapper.selectById(id);
+        return BeanConverter.convertObj(userPO,UserBO.class);
 
+    }
+
+    public UserBO updateUser(UserBO userBO) {
+        userMapper.updateById(BeanConverter.convertObj(userBO, UserPO.class));
+        return getUser(userBO.getId());
     }
 }

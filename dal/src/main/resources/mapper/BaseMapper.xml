@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="BASE_MAPPER">
-    <resultMap id="BASE_RESULT_MAP" type="com.pocketdigi.demo.dal.po.BasePo">
+    <resultMap id="BASE_RESULT_MAP" type="com.pocketdigi.demo.dal.po.BasePO">
         <id column="id" property="id" />
         <result column="gmt_create" property="gmtCreate" />
         <result column="gmt_modified" property="gmtModified" />

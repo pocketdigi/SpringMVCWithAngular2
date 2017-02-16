@@ -22,7 +22,14 @@ export class UserService {
   }
 
   addUser(user:User):Observable<Result<User>> {
-    return this.apiService.postBody('/user',user);
+    return this.apiService.post('/user',user);
   }
 
+  deleteUser(id:string):Observable<Result<boolean>> {
+    return this.apiService.delete('/user/'+id);
+  }
+
+  editUser(user:User):Observable<Result<User>> {
+    return this.apiService.put('/user/'+user.id,user);
+  }
 }

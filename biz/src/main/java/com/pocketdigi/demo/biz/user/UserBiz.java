@@ -1,7 +1,6 @@
 package com.pocketdigi.demo.biz.user;
 
-import com.pocketdigi.demo.biz.user.bo.UserBo;
-import org.springframework.stereotype.Service;
+import com.pocketdigi.demo.biz.user.bo.UserBO;
 
 import java.util.List;
 
@@ -9,8 +8,9 @@ import java.util.List;
  * Created by fhp on 16/10/30.
  */
 public interface UserBiz {
-    UserBo addUser(UserBo userBo);
+    UserBO addUser(UserBO userBO);
     boolean deleteUser(Integer id);
-    List<UserBo> listAll();
-    UserBo getUser(Integer id);
+    List<UserBO> listAll();
+    UserBO getUser(Integer id);
+    UserBO updateUser(UserBO userBO);
 }

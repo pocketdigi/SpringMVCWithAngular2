@@ -1,12 +1,19 @@
-import {Directive, Input, SimpleChanges} from '@angular/core';
-import {AbstractControl, ValidatorFn} from "@angular/forms";
-
+import {Directive, Input, SimpleChanges, OnChanges} from '@angular/core';
+import {AbstractControl, ValidatorFn, NG_VALIDATORS, Validator} from "@angular/forms";
+/**
+ * 校验数字是否在指定范围内
+ * 使用方法：
+ * input标签添加numberBetween="1,100"
+ * 上限或下限可留空，如numberBetween="1,"表示限制必须大于等于1
+ * 条件不符合，错误类型为 numberBetween
+ */
 @Directive({
-  selector: '[numberBetween]'
+  selector: '[numberBetween]',
+  providers: [{provide: NG_VALIDATORS, useExisting: NumberBetweenValidatorDirective, multi: true}]
 })
-export class NumberBetweenValidatorDirective {
+export class NumberBetweenValidatorDirective  implements Validator,OnChanges{
 
-  @Input('numberBetween') numberRange:number;
+  @Input('numberBetween') numberBetween:number;
   min:number;
   max:number;
   validate(c: AbstractControl): {[p: string]: any} {
@@ -29,7 +36,12 @@ export class NumberBetweenValidatorDirective {
   constructor() { }
 }
 
-
+/**
+ * 响应式表单使用
+ * @param min
+ * @param max
+ * @returns {(currentControl:AbstractControl)=>{[p: string]: any}}
+ */
 export function numberBetween(min:number,max:number):ValidatorFn {
   return (currentControl: AbstractControl): {[key: string]: any} => {
     return between(currentControl,min,max);
