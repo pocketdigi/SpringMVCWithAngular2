@@ -12,6 +12,14 @@ const routes: Routes = [
     children: []
   },
   {
+    path:'user/add',
+    component:UserEditComponent,
+  },
+  {
+    path:'user/edit/:id',
+    component:UserEditComponent,
+  },
+  {
     path:'user/:id',
     component:UserDetailComponent,
   },
@@ -19,14 +27,8 @@ const routes: Routes = [
     path:'rxjs',
     component:RxjsComponent
   },
-  {
-    path:'user/edit/:id',
-    component:UserEditComponent,
-  },
-  {
-    path:'user/add',
-    component:UserEditComponent,
-  },
+
+
 ];
 
 @NgModule({

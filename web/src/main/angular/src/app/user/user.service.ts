@@ -21,4 +21,8 @@ export class UserService {
     return this.apiService.get('/user/'+id);
   }
 
+  addUser(user:User):Observable<Result<User>> {
+    return this.apiService.postBody('/user',user);
+  }
+
 }

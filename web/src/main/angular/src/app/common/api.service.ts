@@ -23,7 +23,7 @@ export class ApiService {
    * @param body
    * @returns {Observable<R>}
    */
-  postBody(apiPath:string,body:any):Observable<any[]>  {
+  postBody<T>(apiPath:string,body:any):Observable<Result<T>>  {
     let postBody=JSON.stringify(body);
     let headers=new Headers({'Content-type':'application/json'});
     let options=new RequestOptions({headers:headers});
