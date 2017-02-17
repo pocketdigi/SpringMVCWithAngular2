@@ -10,4 +10,5 @@ import lombok.Data;
 public class UserDTO extends BaseDTO {
     String userName;
     int userAge;
+    String avatar;
 }

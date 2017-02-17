@@ -7,6 +7,9 @@
   <label>年龄：</label><input type="number" name="userAge" numberBetween="1,100" [(ngModel)]="user.userAge" required><span *ngIf="formErrors['userAge']" class="error">
     {{ formErrors['userAge'] }}
     </span> <br>
+  <img *ngIf="user.avatar" src="{{user.avatar}}" /> <br />
+  <label>头像:</label> <input type="file" name="file" ng2FileSelect [uploader]="uploader" #uploadInput/>
+  <button (click)="upload()" >上传</button>
   <input *ngIf="user.id" type="button" value="保存" [disabled]="!userForm.valid" (click)="editUser()" >
   <input *ngIf="!user.id" type="button" value="添加" [disabled]="!userForm.valid" (click)="addUser()" >
 </form>

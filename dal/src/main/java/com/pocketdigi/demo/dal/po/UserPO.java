@@ -6,4 +6,5 @@ import lombok.Data;
 public class UserPO extends BasePO {
     private String userName;
     private int userAge;
+    private String avatar;
 }

@@ -11,7 +11,7 @@ import java.util.Date;
  * Created by fhp on 16/10/13.
  */
 @Data
-public class BaseBo implements Serializable{
+public class BaseBO implements Serializable{
     private Integer id;
     private Date gmtCreate;
     private Date gmtModified;

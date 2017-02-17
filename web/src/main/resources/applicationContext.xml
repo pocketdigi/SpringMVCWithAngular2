@@ -3,12 +3,5 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <!--<import resource="classpath:interceptors/*.xml" />-->
-    <!--<import resource="classpath:spring/properties_config.xml" />-->
-    <!--<import resource="classpath:dal/mybatis.xml" />-->
-    <import resource="classpath*:spring/*.xml" />
-    <!--<import resource="classpath:spring/properties_config.xml"/>-->
-    <!--<import resource="classpath:spring/mybatis.xml"/>-->
-    <!--<import resource="classpath:spring/biz-bean.xml"/>-->
 
 </beans>

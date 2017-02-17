@@ -5,6 +5,7 @@
     <resultMap id="ResultMap" type="com.pocketdigi.demo.dal.po.UserPO" extends="BASE_MAPPER.BASE_RESULT_MAP">
         <result column="user_name" property="userName" />
         <result column="user_age" property="userAge" />
+        <result column="avatar" property="avatar" />
     </resultMap>
 
     <sql id="ColumnList">
@@ -12,6 +13,7 @@
             <include refid="BASE_MAPPER.BASE_COLUMN_LIST"/>
             user_name,
             user_age,
+            avatar,
         </trim>
     </sql>
     
@@ -25,6 +27,9 @@
                 <if test="userAge != null and userAge !=''">
                     and user_age = #{userAge}
                 </if>
+                <if test="avatar != null and avatar !=''">
+                    and avatar = #{avatar}
+                </if>
             </trim>
         </where>
     </sql>
@@ -37,7 +42,10 @@
                     user_name = #{userName},
                 </if>
                 <if test="userAge != null and userAge !=''">
-                    user_age = #{userAge}
+                    user_age = #{userAge},
+                </if>
+                <if test="avatar != null and avatar !=''">
+                    avatar = #{avatar}
                 </if>
             </trim>
         </set>
@@ -121,22 +129,28 @@
                 user_name,
             </if>
             <if test="userAge != 0">
-                user_age
+                user_age,
             </if>
+        <if test="avatar != null">
+            avatar
+        </if>
         )
         VALUES (
         <if test="userName != null">
             #{userName},
         </if>
         <if test="userAge != 0">
-            #{userAge}
+            #{userAge},
+        </if>
+        <if test="userAge != null">
+            #{avatar}
         </if>
         )
     </insert>
 
     <update id="updateById">
         UPDATE users
-        SET user_name = #{userName},user_age = #{userAge}
+        SET user_name = #{userName},user_age = #{userAge},avatar = #{avatar}
         WHERE id = ${id};
     </update>
 

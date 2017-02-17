@@ -14,6 +14,7 @@ import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { NumberBetweenValidatorDirective } from './common/validator/number-between-validator.directive';
 import {MaterialModule} from "@angular/material";
 import {FlexLayoutModule} from "@angular/flex-layout";
+import {FileUploadModule} from "ng2-file-upload";
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {FlexLayoutModule} from "@angular/flex-layout";
     ReactiveFormsModule,
     AppRoutingModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    FileUploadModule
   ],
   providers: [UserService,ApiService],
   bootstrap: [AppComponent]
