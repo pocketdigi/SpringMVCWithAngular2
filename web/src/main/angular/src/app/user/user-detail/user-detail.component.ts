@@ -1,6 +1,6 @@
 import {Component, OnInit, AfterViewInit} from "@angular/core";
 import {UserService} from "../user.service";
-import {ActivatedRoute, Params} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 import {User} from "../user";
 
 @Component({
@@ -11,7 +11,7 @@ import {User} from "../user";
 export class UserDetailComponent implements OnInit,AfterViewInit {
 
   user:User;
-  constructor(private userService:UserService, private route: ActivatedRoute,) { }
+  constructor(private userService:UserService, private route: ActivatedRoute,private router:Router) { }
 
   ngOnInit() {
 
@@ -21,6 +21,10 @@ export class UserDetailComponent implements OnInit,AfterViewInit {
   ngAfterViewInit(): void {
     this.route.params.switchMap((params:Params)=> this.userService.getUser(params['id']))
       .subscribe(result=>this.user=result.data);
+  }
+
+  edit() {
+    this.router.navigate(['user','edit',this.user.id]);
   }
 
 }

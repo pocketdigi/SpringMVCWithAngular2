@@ -1,7 +1,18 @@
-<div *ngIf="user">
-  <p>{{user.userName}}</p>
-  <p>{{user.userAge}}</p>
-  <p>{{user.gmtCreate | date:'y-MM-dd HH:mm:ss'}}</p>
-  <p><a routerLink="/user/edit/{{user.id}}">编辑</a> </p>
-</div>
 
+<md-card class="example-card"  *ngIf="user">
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>{{user.userName}}</md-card-title>
+    <md-card-subtitle>年龄:{{user.userAge}}</md-card-subtitle>
+  </md-card-header>
+  <md-card-content>
+    <p>
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+      bred for hunting.
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button (click)="edit()">Edit</button>
+  </md-card-actions>
+</md-card>

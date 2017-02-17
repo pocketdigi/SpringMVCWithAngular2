@@ -55,7 +55,7 @@ public class UserController{
     }
     @RequestMapping(value = "{id}",method = RequestMethod.PUT)
     @ResponseBody
-    public ResultDTO<UserDTO> update(@PathVariable Integer id,@RequestBody UserDTO user) {
+    public ResultDTO<UserDTO> update(@PathVariable Integer id, @RequestBody UserDTO user) {
         UserBO user1 = userBiz.updateUser(BeanConverter.convertObj(user,UserBO.class));
         UserDTO userDTO=BeanConverter.convertObj(user1,UserDTO.class);
         return ResultDTO.wrapSuccess(userDTO);

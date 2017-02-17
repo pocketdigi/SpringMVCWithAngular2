@@ -12,6 +12,9 @@ import {ApiService} from "./common/api.service";
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
 import { NumberBetweenValidatorDirective } from './common/validator/number-between-validator.directive';
+import {MaterialModule} from "@angular/material";
+import {FlexLayoutModule} from "@angular/flex-layout";
+
 
 @NgModule({
   declarations: [
@@ -27,7 +30,9 @@ import { NumberBetweenValidatorDirective } from './common/validator/number-betwe
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MaterialModule,
+    FlexLayoutModule
   ],
   providers: [UserService,ApiService],
   bootstrap: [AppComponent]

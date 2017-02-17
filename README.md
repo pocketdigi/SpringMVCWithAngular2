@@ -29,4 +29,6 @@ Angular目录在web/src/main/angular，生成的dist目录在web/src/main/webapp
 
 Angular监听文件变化自动构建：`npm run develop`，建议在idea添加运行配置
 
+发布：`mvn package`
+
 配置步骤参考[SpringMVC Angular2 Intellij Idea 开发环境搭建](https://www.pocketdigi.com/20170214/1567.html)
