@@ -4,6 +4,7 @@ import {UserListComponent} from "./user/user-list/user-list.component";
 import {UserDetailComponent} from "./user/user-detail/user-detail.component";
 import {RxjsComponent} from "./rxjs/rxjs.component";
 import {UserEditComponent} from "./user/user-edit/user-edit.component";
+import {environment} from "../environments/environment";
 
 const routes: Routes = [
   {
@@ -32,7 +33,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{ useHash: true })],
+  imports: [RouterModule.forRoot(routes,{ useHash: environment.useHash })],
   exports: [RouterModule],
   providers: []
 })

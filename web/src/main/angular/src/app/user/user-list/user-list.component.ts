@@ -12,7 +12,8 @@ import {Router} from "@angular/router";
 export class UserListComponent implements OnInit,AfterViewInit {
   userList:User[];
   ngAfterViewInit(): void {
-    this.userService.getUserList().subscribe(result=>(this.loadData(result.data)));
+    this.userService.getUserList().subscribe(result=>
+      (result.code==0?this.loadData(result.data):this.showError(result.msg)));
   }
 
   constructor(private userService:UserService) { }
@@ -31,5 +32,8 @@ export class UserListComponent implements OnInit,AfterViewInit {
 
   delete(id:string) {
     this.userService.deleteUser(id).subscribe(result=>(location.reload()));
+  }
+  showError(msg:string) {
+    alert(msg);
   }
 }

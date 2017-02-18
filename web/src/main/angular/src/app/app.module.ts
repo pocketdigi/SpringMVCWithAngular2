@@ -15,6 +15,7 @@ import { NumberBetweenValidatorDirective } from './common/validator/number-betwe
 import {MaterialModule} from "@angular/material";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {FileUploadModule} from "ng2-file-upload";
+import {LogService} from "./common/log.service";
 
 
 @NgModule({
@@ -36,7 +37,7 @@ import {FileUploadModule} from "ng2-file-upload";
     FlexLayoutModule,
     FileUploadModule
   ],
-  providers: [UserService,ApiService],
+  providers: [LogService,ApiService,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

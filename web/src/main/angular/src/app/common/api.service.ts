@@ -3,11 +3,12 @@ import {Observable} from "rxjs";
 import {Headers, RequestOptions, Http, Response, Request, RequestMethod} from "@angular/http";
 import {Result} from "./result";
 import {User} from "../user/user";
+import {LogService} from "./log.service";
 
 @Injectable()
 export class ApiService {
 
-  constructor(private _http:Http) { }
+  constructor(private _http:Http,private log:LogService) { }
 
   /**
    * get方法
@@ -50,17 +51,17 @@ export class ApiService {
   }
 
   private sendRequest<T>(url:string,options:RequestOptions):Observable<Result<T>>{
-    return this._http.request(url,options).map(this.extractData).catch(this.handleError);
+    return this._http.request(url,options).map(this.extractData.bind(this)).catch(this.handleError.bind(this));
   }
 
   private extractData<T>(res:Response):Result<T> {
     let body = res.json();
-    console.log(JSON.stringify(body));
+    this.log.debug(JSON.stringify(body));
     return body as Result<T> || null;
   }
 
   private handleError(error:any) {
-    console.error(JSON.stringify(error));
+    this.log.error(JSON.stringify(error));
     return Observable.throw(error.message);
   }
 
