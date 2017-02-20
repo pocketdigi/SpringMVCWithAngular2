@@ -28,7 +28,10 @@ const routes: Routes = [
     path:'rxjs',
     component:RxjsComponent
   },
-
+  {
+    path:'home',
+    loadChildren:'app/home/home.module#HomeModule'
+  }
 
 ];
 
