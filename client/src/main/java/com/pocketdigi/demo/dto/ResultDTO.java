@@ -6,7 +6,7 @@ import lombok.Data;
  * Created by fhp on 16/10/30.
  */
 @Data
-public class ResultDTO<T> {
+public class ResultDTO<T> implements java.io.Serializable{
     String msg;
     int code;
     T data;

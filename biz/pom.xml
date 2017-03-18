@@ -22,7 +22,10 @@
             <artifactId>dal</artifactId>
             <groupId>${project.groupId}</groupId>
         </dependency>
-
+        <dependency>
+            <artifactId>client</artifactId>
+            <groupId>${project.groupId}</groupId>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

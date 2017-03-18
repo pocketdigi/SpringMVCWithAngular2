@@ -5,6 +5,8 @@ import com.pocketdigi.demo.biz.user.bo.UserBO;
 import com.pocketdigi.demo.common.converter.BeanConverter;
 import com.pocketdigi.demo.dal.mapper.UserMapper;
 import com.pocketdigi.demo.dal.po.UserPO;
+import com.pocketdigi.demo.user.UserService;
+import com.pocketdigi.demo.user.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,9 @@ import java.util.List;
 public class UserBizImpl implements UserBiz{
     @Autowired
     UserMapper userMapper;
+    @Autowired
+    UserService userService;
+
     public UserBO addUser(UserBO userBO) {
         UserPO userPO = BeanConverter.convertObj(userBO, UserPO.class);
         int insert = userMapper.insert(userPO);
@@ -47,4 +52,11 @@ public class UserBizImpl implements UserBiz{
         userMapper.updateById(BeanConverter.convertObj(userBO, UserPO.class));
         return getUser(userBO.getId());
     }
+
+    public List<UserBO> listAllUseDubbo() {
+        List<UserDTO> data = userService.listAll().getData();
+        return BeanConverter.convertArrayList(data,UserBO.class);
+    }
+
+
 }

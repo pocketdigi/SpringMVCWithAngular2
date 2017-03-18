@@ -14,6 +14,7 @@
         <module>client</module>
         <module>biz</module>
         <module>dal</module>
+        <module>dubbo-server</module>
     </modules>
     <properties>
         <!--self-->
@@ -62,7 +63,11 @@
                 <groupId>${project.groupId}</groupId>
                 <version>${client.version}</version>
             </dependency>
-
+            <dependency>
+                <artifactId>dubbo-server</artifactId>
+                <groupId>${project.groupId}</groupId>
+                <version>${client.version}</version>
+            </dependency>
             <dependency>
                 <artifactId>dal</artifactId>
                 <version>1.0-SNAPSHOT</version>
@@ -275,6 +280,39 @@
                 <artifactId>rxjava</artifactId>
                 <version>${rxjava.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>2.5.3</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.101tec</groupId>
+                <artifactId>zkclient</artifactId>
+                <version>0.5</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-api</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
 
             <!-- jetty -->
             <dependency>

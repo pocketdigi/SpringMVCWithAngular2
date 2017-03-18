@@ -26,7 +26,10 @@
             <artifactId>biz</artifactId>
             <groupId>${project.groupId}</groupId>
         </dependency>
-
+        <dependency>
+            <artifactId>dubbo-server</artifactId>
+            <groupId>${project.groupId}</groupId>
+        </dependency>
 
         <dependency>
             <groupId>javax.servlet.jsp</groupId>

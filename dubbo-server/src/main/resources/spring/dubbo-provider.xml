@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+           http://code.alibabatech.com/schema/dubbo
+           http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <dubbo:provider timeout="60000"/>
+
+    <!-- 声明需要暴露的服务接口 owner 写开发者姓名-->
+    <dubbo:service interface="com.pocketdigi.demo.user.UserService"
+                   ref="UserService" version="${dubbo.service.version}" owner="exception"/>
+
+
+</beans>
