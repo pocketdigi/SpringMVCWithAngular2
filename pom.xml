@@ -21,7 +21,6 @@
         <project.groupId>com.pocketdigi.demo</project.groupId>
         <project.artifactId>demo</project.artifactId>
         <project.version>1.0-SNAPSHOT</project.version>
-        <common.version>1.0-SNAPSHOT</common.version>
         <client.version>1.0-SNAPSHOT</client.version>
 
 
@@ -56,7 +55,7 @@
             <dependency>
                 <artifactId>common</artifactId>
                 <groupId>${project.groupId}</groupId>
-                <version>${common.version}</version>
+                <version>1.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <artifactId>client</artifactId>
@@ -66,7 +65,7 @@
             <dependency>
                 <artifactId>dubbo-server</artifactId>
                 <groupId>${project.groupId}</groupId>
-                <version>${client.version}</version>
+                <version>1.0-SNAPSHOT</version>
             </dependency>
             <dependency>
                 <artifactId>dal</artifactId>
