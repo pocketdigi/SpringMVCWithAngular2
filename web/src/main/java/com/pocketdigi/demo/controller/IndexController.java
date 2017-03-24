@@ -36,9 +36,5 @@ public class IndexController {
         model.addAttribute("describe","adsfasfasdf");
         return "index";
     }
-    @RequestMapping(value = "dubbo")
-    @ResponseBody
-    public ResultDTO dubboTest() {
-        return ResultDTO.wrapSuccess(userBiz.listAllUseDubbo());
-    }
+
 }

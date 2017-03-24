@@ -19,8 +19,7 @@ import java.util.List;
 public class UserBizImpl implements UserBiz{
     @Autowired
     UserMapper userMapper;
-    @Autowired
-    UserService userService;
+
 
     public UserBO addUser(UserBO userBO) {
         UserPO userPO = BeanConverter.convertObj(userBO, UserPO.class);
@@ -53,10 +52,6 @@ public class UserBizImpl implements UserBiz{
         return getUser(userBO.getId());
     }
 
-    public List<UserBO> listAllUseDubbo() {
-        List<UserDTO> data = userService.listAll().getData();
-        return BeanConverter.convertArrayList(data,UserBO.class);
-    }
 
 
 }

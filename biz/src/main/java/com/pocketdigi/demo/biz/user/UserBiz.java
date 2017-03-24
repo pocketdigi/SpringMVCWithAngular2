@@ -13,5 +13,4 @@ public interface UserBiz {
     List<UserBO> listAll();
     UserBO getUser(Integer id);
     UserBO updateUser(UserBO userBO);
-    List<UserBO> listAllUseDubbo();
 }

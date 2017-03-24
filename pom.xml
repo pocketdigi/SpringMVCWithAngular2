@@ -14,7 +14,6 @@
         <module>client</module>
         <module>biz</module>
         <module>dal</module>
-        <module>dubbo-server</module>
     </modules>
     <properties>
         <!--self-->
@@ -62,11 +61,7 @@
                 <groupId>${project.groupId}</groupId>
                 <version>${client.version}</version>
             </dependency>
-            <dependency>
-                <artifactId>dubbo-server</artifactId>
-                <groupId>${project.groupId}</groupId>
-                <version>1.0-SNAPSHOT</version>
-            </dependency>
+
             <dependency>
                 <artifactId>dal</artifactId>
                 <version>1.0-SNAPSHOT</version>
@@ -280,17 +275,7 @@
                 <version>${rxjava.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>dubbo</artifactId>
-                <version>2.5.3</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.springframework</groupId>
-                        <artifactId>spring</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
+
 
             <dependency>
                 <groupId>com.101tec</groupId>
