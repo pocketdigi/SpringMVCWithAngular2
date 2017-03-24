@@ -1,4 +1,4 @@
-### SpringMVC+MyBatis+FreeMarker+Angular2 Demo
+### SpringMVC+MyBatis+FreeMarker
 #####模块化分离代码
 
 - biz:Service 业务逻辑层
@@ -15,7 +15,6 @@
 3. FreeMarker
 4. log4j+slf4j
 5. Gson
-6. Angular2
 
 ####使用方法
 1. 全局搜索 `${project.groupId}`,`${project.artifactId}`,`${project.version}`替换项目的groupId,artifactId，version。
