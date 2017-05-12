@@ -1,5 +1,5 @@
 ### SpringMVC+MyBatis+FreeMarker+Angular2 Demo
-#####模块化分离代码
+##### 模块化分离代码
 
 - biz:Service 业务逻辑层
 - client:对外的接口定义
@@ -8,7 +8,7 @@
 - common:一些公共类
 
 
-####用到的框架：
+#### 用到的框架：
 
 1. SpringMVC
 2. Mybatis
@@ -17,7 +17,7 @@
 5. Gson
 6. Angular2
 
-####使用方法
+#### 使用方法
 1. 全局搜索 `${project.groupId}`,`${project.artifactId}`,`${project.version}`替换项目的groupId,artifactId，version。
 如果直接使用表达式，打包会有警告，但也不会报错。
 2. 更改包名。在web/src/main/java/com.pocketdigi.demo上按shift+F6(快捷键可能不一样，右键-Refactor-rename也是可以的),选择`Rename Package`

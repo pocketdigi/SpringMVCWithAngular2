@@ -3,3 +3,4 @@
 logs/
 /web/src/main/webapp/dist/
 /web/src/main/webapp/upload/
+**/*.iml
