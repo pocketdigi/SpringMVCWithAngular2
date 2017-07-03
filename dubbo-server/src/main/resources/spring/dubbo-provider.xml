@@ -8,7 +8,8 @@
            http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <dubbo:provider timeout="60000"/>
-
+    <!-- 用dubbo协议在20880端口暴露服务 -->
+    <dubbo:protocol name="dubbo" port="${dubbo.port}"/>
     <!-- 声明需要暴露的服务接口 owner 写开发者姓名-->
     <dubbo:service interface="com.pocketdigi.demo.user.UserService"
                    ref="UserService" version="${dubbo.service.version}" owner="exception"/>

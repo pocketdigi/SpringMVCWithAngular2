@@ -16,9 +16,6 @@
     <!-- zk 自动寻找监控中心 -->
     <dubbo:monitor protocol="registry"/>
 
-    <!-- 用dubbo协议在20880端口暴露服务 -->
-    <dubbo:protocol name="dubbo" port="${dubbo.port}"/>
-
     <!-- 关闭dubbo启动校验依赖服务端是否正常 -->
     <dubbo:consumer check="false"/>
 
